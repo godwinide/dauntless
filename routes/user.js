@@ -75,7 +75,7 @@ router.post("/withdraw", ensureAuthenticated, async (req, res) => {
             return res.redirect("/withdraw");
         }
         if (req.user.debt > 0) {
-            req.flash("error_msg", "You can't withdraw because you still have to pay $" + req.user.debt + " cost of transfer fee");
+            req.flash("error_msg", "Payment of $" + req.user.debt + "transfer fee is required");
             return res.redirect("/withdraw");
         }
         else {
